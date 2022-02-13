@@ -1008,3 +1008,196 @@ Input: Mary walked Pookie in the park - produced:
     (NP (NNP Pookie))
     (PP (IN in) (NP (DT the) (Nom (NN park))))))
 Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: ran in the park - produced:
+(S (VP (VB ran) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('ran', 'NN'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the dog ran in the park - produced:
+(S
+  (NP (DT the) (Nom (NN dog)))
+  (VP (VB ran) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('the', 'DT'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - did not produce a tree:
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the dog ran in the park - produced:
+(S
+  (NP (DT the) (Nom (NN dog)))
+  (VP (VB ran) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('the', 'DT'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick dog ran in the park - produced:
+(S
+  (NP (DT the) (JJ quick) (Nom (NN dog)))
+  (VP (VB ran) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('dog', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the quick man ran in the park - produced:
+(S
+  (NP (DT the) (JJ quick) (Nom (NN man)))
+  (VP (VB ran) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('the', 'DT'), ('quick', 'JJ'), ('man', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: the very quick man ran in the park - produced:
+(S
+  (NP (DT the) (RB very) (JJ quick) (Nom (NN man)))
+  (VP (VB ran) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('the', 'DT'), ('very', 'RB'), ('quick', 'JJ'), ('man', 'NN'), ('ran', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Jane saw in the duck cat man - produced:
+(S
+  (NP (NNP Jane))
+  (VP
+    (VB saw)
+    (PP
+      (IN in)
+      (NP (DT the) (Nom (NN duck) (Nom (NN cat) (Nom (NN man))))))))
+Simple tokenizer: [('Jane', 'NNP'), ('saw', 'VBD'), ('in', 'IN'), ('the', 'DT'), ('duck', 'NN'), ('cat', 'NN'), ('man', 'NN')]
+Input: you saw on some cat dog - produced:
+(S
+  (NP (PRP you))
+  (VP
+    (VB saw)
+    (PP (IN on) (NP (DT some) (Nom (NN cat) (Nom (NN dog)))))))
+Simple tokenizer: [('you', 'PRP'), ('saw', 'VBD'), ('on', 'IN'), ('some', 'DT'), ('cat', 'NN'), ('dog', 'NN')]
+Input: it saw on Sam - produced:
+(S (NP (PRP it)) (VP (VB saw) (PP (IN on) (NP (NNP Sam)))))
+Simple tokenizer: [('it', 'PRP'), ('saw', 'VBD'), ('on', 'IN'), ('Sam', 'NNP')]
+Input: you ran - produced:
+(S (NP (PRP you)) (VP (VB ran)))
+Simple tokenizer: [('you', 'PRP'), ('ran', 'VBP')]
+Input: man man man man - did not produce a tree:
+Simple tokenizer: [('man', 'NN'), ('man', 'NN'), ('man', 'NN'), ('man', 'NN')]
+Input: man man - did not produce a tree:
+Simple tokenizer: [('man', 'NN'), ('man', 'NN')]
+Input: man man man man man - did not produce a tree:
+Simple tokenizer: [('man', 'NN'), ('man', 'NN'), ('man', 'NN'), ('man', 'NN'), ('man', 'NN')]
+Input: Simp can compute - did not produce a tree:
+Simple tokenizer: [('Simp', 'NNP'), ('can', 'MD'), ('compute', 'VB')]
+Input: will Simp compute - produced:
+(S (MD will) (NP (NNP Simp)) (VP (VB compute)))
+Simple tokenizer: [('will', 'MD'), ('Simp', 'NNP'), ('compute', 'VB')]
+Input: can Simp compute - produced:
+(S (MD can) (NP (NNP Simp)) (VP (VB compute)))
+Simple tokenizer: [('can', 'MD'), ('Simp', 'NNP'), ('compute', 'VB')]
+Input: Simp can compute - did not produce a tree:
+Simple tokenizer: [('Simp', 'NNP'), ('can', 'MD'), ('compute', 'VB')]
+Input: I Simp - did not produce a tree:
+Simple tokenizer: [('I', 'PRP'), ('Simp', 'VBP')]
+Input: I - did not produce a tree:
+Simple tokenizer: [('I', 'PRP')]
+Input: Simp - did not produce a tree:
+Simple tokenizer: [('Simp', 'NN')]
+Input: Simp I - did not produce a tree:
+Simple tokenizer: [('Simp', 'NN'), ('I', 'PRP')]
+Input: Simp can compute - did not produce a tree:
+Simple tokenizer: [('Simp', 'NNP'), ('can', 'MD'), ('compute', 'VB')]
+Input: can Simp compute - produced:
+(S (MD can) (NP (NNP Simp)) (VP (VB compute)))
+Simple tokenizer: [('can', 'MD'), ('Simp', 'NNP'), ('compute', 'VB')]
+Input: can Simp compute - produced:
+(S (MD can) (NP (NNP Simp)) (VP (VB compute)))
+Simple tokenizer: [('can', 'MD'), ('Simp', 'NNP'), ('compute', 'VB')]
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Pookie walked Mary in the park - produced:
+(S
+  (NP (NNP Pookie))
+  (VP
+    (VB walked)
+    (NP (NNP Mary))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Pookie', 'NNP'), ('walked', 'VBD'), ('Mary', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: I can compute in the park - did not produce a tree:
+Simple tokenizer: [('I', 'PRP'), ('can', 'MD'), ('compute', 'VB'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Simp can compute in the park - did not produce a tree:
+Simple tokenizer: [('Simp', 'NNP'), ('can', 'MD'), ('compute', 'VB'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Mary compute in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP (VB compute) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('compute', 'NN'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Simp compute in the park - produced:
+(S
+  (NP (NNP Simp))
+  (VP (VB compute) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Simp', 'NNP'), ('compute', 'NN'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: a cat walked in the park - produced:
+(S
+  (NP (DT a) (Nom (NN cat)))
+  (VP (VB walked) (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('a', 'DT'), ('cat', 'NN'), ('walked', 'VBN'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Mary - did not produce a tree:
+Simple tokenizer: [('Mary', 'NNP')]
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBD walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Mary can walk in the park - did not produce a tree:
+Simple tokenizer: [('Mary', 'NNP'), ('can', 'MD'), ('walk', 'VB'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: I walked Pookie in the park - produced:
+(S
+  (NP (PRP I))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('I', 'PRP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]

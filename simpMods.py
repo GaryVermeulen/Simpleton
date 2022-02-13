@@ -1,77 +1,26 @@
 #
 # simpMods.py
 #
-"""
- buildCFG()
- Contruct a simple CFG file using the the example from the NLTK Book
- Input:  simpLex.txt
- Input format: 'word', 'N, V, P, or Det', 'optional short description'
- 
- File: simp.cfg
- Output foramt: S -> NP VP
-                VP -> V NP | V NP PP
-                PP -> P NP
-                NP -> "John" | "Mary" | "Bob" | Det N | Det N PP
-                N -> "man" | "dog" | "cat" | "telescope" | "park"
-                V -> "saw" | "ate" | "walked"
-                P -> "in" | "on" | "by" | "with"
-                Det -> "a" | "an" | "the" | "my"
-
- Symbol    Meaning 	            Example
- ------    ------                  ----------------
- S 	   sentence                the man walked
- NP 	   noun phrase             a dog
- VP 	   verb phrase             saw a park
- PP 	   prepositional phrase    with a telescope
- Det 	   determiner              the
- N 	   noun                    dog
- V 	   verb                    walked
- P 	   preposition             in                
-
- File: simp3.cfg
- Output foramt: S -> NP VP | VP | AUX NP VP
-                NP -> ProN | PropN | Det Nom
-                Nom -> N Nom | N
-                ProN -> "me" | "I" | "you" | "it"
-                PropN -> "John" | "Mary" | "Bob" | "Pookie" | "Pete" | "Jane" | "Sam"
-                N -> "cat" | "man" | "dog" | "telescope" | "park" | "duck" | "bus"
-                VP -> V | V NP | V NP PP | V PP
-                V -> "saw" | "ate" | "walked" | "ran" | "fly"
-                PP -> Prep NP
-                Prep -> "in" | "on" | "by" | "with" | "at"
-                Det -> "a" | "an" | "the" | "my" | "some"
-                AUX -> "can" | "could" | "might" | "will"
-                
- 
-"""
-
-
 import nltk
 from nltk import word_tokenize
 from nltk.corpus import wordnet as wn
 from nltk import pos_tag
 import re
-
-# Our own module
-#import modGrammar
-
-# Pyke implementation
-#
-##import contextlib
-##import sys
-##import time
+import random as rd
 
 
 # CFG file
 #
 ##fCFG = 'simp.cfg'
+##fCFG = 'simpx.cfg'
+fCFG = 'simp2a.cfg'
 ##fCFG = 'simp3.cfg'
-fCFG = '/home/gary/src/simpleton/simpPTPoS.cfg'
+##fCFG = '/home/gary/src/simpleton/simpPTPoS.cfg'
 
 #
 # Lexicon
 #
-fLex = 'simpLex.txt'
+##fLex = 'simpLex.txt'
 
 #
 # KBs
@@ -311,7 +260,7 @@ def chkGrammar(s):
     fm = '/home/gary/src/simpleton/simpMem.txt'
     fmMode = 'a'
 
-    rd_parser = nltk.RecursiveDescentParser(simpleGrammar) # , trace=2)
+    rd_parser = nltk.RecursiveDescentParser(simpleGrammar) #, trace=2)
     treesFound = []
 
     slist = s.split()
@@ -403,16 +352,18 @@ def getNodes(parent):
 ###
 def searchMeaning(s, names, nouns):
 
+    relationFound = False
     sNames = []
     sNouns = []
     matchedIsA = []
     matchedCanDo = []
 
     s = s.split(' ')
-    print('Input s: ' + str(s))
-#    print(len(nouns))
+    print('**--> searching for relationships:')
+    print('**--> Input s: ')
+    print(str(s))
 
-    # Build lists of names and nouns within input sentense
+    # Build lists of names and nouns from input sentense
     for w in s:
         for n in names:
             if w == n.name:
@@ -422,77 +373,87 @@ def searchMeaning(s, names, nouns):
             if w == noun.name:
                 sNouns.append(noun)
                 
-    print("Found " + str(len(sNames)) + " name nouns (NNP).")
-    print("Found " + str(len(sNouns)) + " nouns (NN).")
+    print("**--> NNPs Found (" + str(len(sNames)) + ").")
+    print(str(sNames))
+    print("**--> NNs Found (" + str(len(sNouns)) + ").")
+    print(str(sNouns))
     print("----------------------")
 
     # Of the names found in the input sentense
     # extract their isA(s) and canDo(s)
     for sn in sNames:
+        print("**-->NNP Object:")
         print(sn.name, sn.gender, sn.isA, sn.canDo, sep=' ; ')
         isAs = sn.isA
         canDos = sn.canDo
 
-        print("Obj name: " + str(sn.name))
+        print("**--> NNP Obj name: " + str(sn.name))
         
         if isAs != "DK":
             isAs = isAs.split(',')
-            print(" Split isAs: " + str(isAs))
+            print("**--> Split isAs: ")
+            print(str(isAs))
         else:
-            print(" Obj isA: " + str(sn.isA))
-        
+            print("**--> Obj isA: ")
+            print(str(sn.isA))
 
         if canDos != "DK":
             canDos = canDos.split(',')
-            print(" Split canDos: " + str(canDos))
+            print("**--> Split canDos: ")
+            print(str(canDos))
 
             for w in s:
                 if w in canDos:
-                    print("=>Match: " + str(sn.name) + " " + str(w))
+                    print("**==>Match: " + str(sn.name) + " " + str(w))
                     matchedCanDo.append(str(sn.name) + " " + str(w))
                     
         else:
-            print(" Obj canDos: " + str(sn.canDo))
+            print("**--> Obj canDos: " + str(sn.canDo))
         
 
-    print("Found " + str(len(sNouns)) + " nouns (N).")
     print("----------------------")
     # Of the nouns found in the input sentense
     # extract their isA(s)    
     for n in sNouns:
+        print("**-->NN Object:")
         print(n.name, n.isA, n.canDo, sep=' ; ')
         isAs = n.isA
         canDos = n.canDo
         
-        print("Obj name: " + str(n.name))
+        print("**--> NN Obj name: " + str(n.name))
         
         if isAs != "DK":
             isAs = isAs.split(',')
-            print(" Split isAs: " + str(isAs))
+            print("**--> Split isAs: ")
+            print(str(isAs))
         else:
-            print(" Obj isA: " + str(n.isA))
+            print("**--> Obj isA: ")
+            print(str(n.isA))
         
-
         if canDos != "DK":
             canDos = canDos.split(',')
-            print(" Split canDos: " + str(canDos))
+            print(" Split canDos: ")
+            print(str(canDos))
 
             for w in s:
                 if w in canDos:
-                    print("=>Match: " + str(n.name) + " " + str(w))
+                    print("**-->Match: " + str(n.name) + " " + str(w))
                     matchedCanDo.append(str(n.name) + " " + str(w))
             
         else:
-            print(" Obj canDos: " + str(n.canDo))
+            print("**--> Obj canDos: " + str(n.canDo))
 
     if len(matchedCanDo) > 0:
         for d in matchedCanDo:
-            print("matchedCanDo: " + str(d))
+            print("**--> matchedCanDo: " + str(d))
+            relationFound = True
     else:
-        print("No relationships found.")
-
-    return s
+        print("**--> No relationships found.")
+        relationFound = False
+        
+    return relationFound
 # End searchMeaning(s)
+
 
 ###
 def addWord(nw):
@@ -588,6 +549,7 @@ def addWord(nw):
 
 # End addWord()
 
+
 ###
 def learningMode(nW):
 
@@ -619,3 +581,171 @@ def learningMode(nW):
 
     return
 # End learningMode
+
+
+###
+def getProduction(p):
+
+    with open(fCFG, 'r') as fin:
+        
+        while (line := fin.readline().rstrip()):
+
+            line = line.replace("-", '')
+            line = line.replace(" ", '')
+
+            line = line.split(">")
+
+            if line[0] == p:
+                s = line[1].split('|')
+                       
+    fin.close()
+
+    return(s)
+# End getProduction
+
+
+## randomSpeak below...
+#
+
+
+###
+def randomSpeak(): 
+    
+    dts = getProduction('DT')
+    ins = getProduction('IN')
+    jjs = getProduction('JJ')
+    nns = getProduction('NN')
+    nnps = getProduction('NNP')
+    mds = getProduction('MD')
+    prps = getProduction('PRP')
+    rbs = getProduction('RB')
+    vbs = getProduction('VB')
+    
+#    print(dts)
+#    print(ins)
+#    print(jjs)
+#    print(nns)    
+#    print(nnps)
+#    print(mds)
+#    print(prps)
+#    print(rbs)
+#    print(vbs)
+
+# Hard coded for testing
+    rules = {
+        "S":[ 
+            ["NP", "VP"],
+            ["VP"],
+            ["AUX", "NP", "VP"]
+        ],
+        "NP":[
+            ["ProN"],
+            ["PropN"],
+            ["Det", "Nom"]
+        ],
+        "Nom":[
+            ["N", "Nom"],
+            ["N"]
+        ],
+        "ProN":[
+            ["me"],
+            ["I"],
+            ["you"],
+            ["it"]
+        ],
+        "PropN":[
+            ["John"],
+            ["Mary"],
+            ["Bob"],
+            ["Pookie"],
+            ["Pete"],
+            ["Jane"],
+            ["Sam"]
+        ],
+        "N":[ 
+            ["cat"],
+            ["dog"],
+            ["man"],
+            ["telescope"],
+            ["park"],
+            ["duck"],
+            ["bus"]
+        ],
+        "VP":[
+            ["V"],
+            ["V", "NP"],
+            ["V", "NP", "PP"],
+            ["V", "PP"],
+        ],
+        "V":[
+            ["saw"],
+            ["ate"],
+            ["walked"],
+            ["ran"],
+            ["fly"]
+        ],
+        "PP":[
+            ["Prep", "NP"]
+        ],
+        "Prep":[
+            ["in"],
+            ["on"],
+            ["by"],
+            ["with"],
+            ["at"] 
+        ],
+        "Det":[
+            ["a"],
+            ["an"],
+            ["the"],
+            ["my"],
+            ["some"]
+        ],
+        "AUX":[
+            ["can"],
+            ["could"],
+            ["might"],
+            ["will"]
+        ]
+    }
+
+    # Contributed by Tiger Sachase
+    # Used to parse any list of strings and insert them in place in a list 
+    def generate_items(items):
+        for item in items:
+            if isinstance(item, list):
+                for subitem in generate_items(item):
+                    yield subitem
+            else:
+                yield item       
+
+    # Our expansion algo
+    def expansion(start):
+        for element in start:
+            if element in rules:
+                loc = start.index(element)
+                start[loc] = rd.choice(rules[element])
+            result = [item for item in generate_items(start)]
+
+        for item in result:
+            if not isinstance(item, list):
+                if item in rules:
+                    result = expansion(result)
+    
+        return result
+
+    # Make a string from a list
+    def to_string(result):
+        return ' '.join(result)
+
+    # An example test you can run to see it at work
+    result = ["S"]
+#    print(result) # Print our starting result
+
+    result = expansion(result) # Expand our starting list
+
+    final = to_string(result)
+    print(final) # Print the final result
+
+
+    return final

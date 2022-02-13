@@ -1,6 +1,7 @@
 #
-# Shell for Simpleton
-#    Simple-Ton: A ton of simple things to do. From SpongeBob SquarePants.
+# Simpleton
+#    Simple-Ton: A ton of simple things to do.
+#
 #
 
 from dataclasses import dataclass
@@ -33,84 +34,94 @@ print("Simple-Ton, A ton of simple things to do.")
 print("Reading data, one moment please...")
 
 # Build a list of nouns (N) from lex
-cfgNouns = sm.getNouns()
-print(str(len(cfgNouns)) + " Nouns (NN) read.")
+##cfgNouns = sm.getNouns()
+##print(str(len(cfgNouns)) + " Nouns (NN) read.")
 
 # Build a list of names (NP) from lex
-cfgNames = sm.getNames()
-print(str(len(cfgNames)) + " Proper Nouns (NP) read.")
+##cfgNames = sm.getNames()
+##print(str(len(cfgNames)) + " Proper Nouns (NP) read.")
 
 # Build an isA list from KB
-isA = sm.getIsA()
-print(str(len(isA)) + " isA relations read.")
+##isA = sm.getIsA()
+##print(str(len(isA)) + " isA relations read.")
 
 # Build an canDo list from KB
-canDo = sm.getCanDo()
-print(str(len(canDo)) + " canDo relations read.")
+##canDo = sm.getCanDo()
+##print(str(len(canDo)) + " canDo relations read.")
 
 # Build a list of name (NP) objects with attributes from KBs
-for name in cfgNames:
-    name_isA = "DK"
-    name = name.replace('"', '')    
-    for x in isA:
-        if x[0] == name:
-            if x[1] != '':
-                name_isA = x[1]
-
-    name_canDo = "DK"
-    for x in canDo:
-        if x[0] == name:
-            if x[0] != '':
-                name_canDo = x[1]
-    
-    myNames.append(NP(name,"DK",name_isA,name_canDo))
-
+#for name in cfgNames:
+#    name_isA = "DK"
+#    name = name.replace('"', '')    
+#    for x in isA:
+#        if x[0] == name:
+#            if x[1] != '':
+#                name_isA = x[1]
+#
+#    name_canDo = "DK"
+#    for x in canDo:
+#        if x[0] == name:
+#            if x[0] != '':
+#                name_canDo = x[1]
+#    
+#    myNames.append(NP(name,"DK",name_isA,name_canDo))
+#
 print("----------------------")
 
-for obj in myNames:
-    print(obj.name, obj.gender, obj.isA, obj.canDo, sep=' : ')
-
-print("----------------------")
+#for obj in myNames:
+#    print(obj.name, obj.gender, obj.isA, obj.canDo, sep=' : ')
+#
+#print("----------------------")
 
 # Build a list of noun (N) objects with attributes from KBs
-for noun in cfgNouns:
-    noun_isA = "DK"
-    noun = noun.replace('"', '')
+#for noun in cfgNouns:
+#    noun_isA = "DK"
+#    noun = noun.replace('"', '')
     
 #    print(noun)
-    for x in isA:
-        if x[0] == noun:
-            if x[0] != '':
-                noun_isA = x[1]
+#    for x in isA:
+#        if x[0] == noun:
+#            if x[0] != '':
+#                noun_isA = x[1]
 
-    noun_canDo = "DK"
-    for x in canDo:
-        if x[0] == noun:
-            if x[0] != '':
-                noun_canDo = x[1]
+#    noun_canDo = "DK"
+#    for x in canDo:
+#        if x[0] == noun:
+#            if x[0] != '':
+#                noun_canDo = x[1]
                 
-    myNouns.append(Nouns(noun,noun_isA,noun_canDo))
+#    myNouns.append(Nouns(noun,noun_isA,noun_canDo))
 
-for o in myNouns:
-    print(o.name, o.isA, o.canDo, sep=' ')
+#for o in myNouns:
+#    print(o.name, o.isA, o.canDo, sep=' ')
 
-print("----------------------")
+#print("----------------------")
 
 loop = True
 
+
 while loop:
+
+    speak = True
+    
+    while speak:
+        response = input('Input or Output<Ii/Oo>?')
+
+        if response in 'Oo':
+            relationFound = False
+            while not relationFound:
+                s = sm.randomSpeak()
+                relationFound = sm.searchMeaning(s, myNames, myNouns)
+                print('relationFound: ' + str(relationFound))
+            speak = True
+        else:
+            speak = False
     
     # Get user input
     #
     s = sm.getSentence()
 
     if len(s) > 0:
-
-        # Check with simple tokenizer
-        tok_s = word_tokenize(s)
-        pos_s = nltk.pos_tag(tok_s)
-        print('Simple tokenizer:')
-        print(pos_s)
 
         # Parse input per grammar
         #
@@ -129,7 +140,7 @@ while loop:
 
         if retCode == 0:
             print('-->>Unable to find any productions in existing grammar')
-            sm.searchMeaning(s, myNames, myNouns)
+#            sm.searchMeaning(s, myNames, myNouns)
     
         elif isinstance(retCode, ValueError):
             print('-->>retCode returned a ValueError' + str(ValueError))
@@ -140,7 +151,7 @@ while loop:
         elif isinstance(retCode, list):
             print('-->>Input is grammatically correct per CFG')
             print('-->>Searching for relationships and/or meaning...')
-            sm.searchMeaning(s, myNames, myNouns)
+#            sm.searchMeaning(s, myNames, myNouns)
         else:
             print('-->>Something unexpected happened')
         
