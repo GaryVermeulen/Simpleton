@@ -5,7 +5,7 @@
 #
 
 from dataclasses import dataclass
-import simpMods as sm
+import simpMod as sm
 import nltk
 from nltk import word_tokenize
 
