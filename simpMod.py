@@ -11,11 +11,7 @@ import random as rd
 
 # CFG file
 #
-##fCFG = 'simp.cfg'
-##fCFG = 'simpx.cfg'
 fCFG = 'simp2a.cfg'
-##fCFG = 'simp3.cfg'
-##fCFG = '/home/gary/src/simpleton/simpPTPoS.cfg'
 
 #
 # Lexicon
@@ -28,6 +24,9 @@ fCFG = 'simp2a.cfg'
 fKBcan = 'simpKBcan.txt'
 fKBis = 'simpKBis.txt'
 
+# Log file
+#
+flog = 'simpLog.txt'
 
 ###
 def getNouns():
@@ -37,18 +36,19 @@ def getNouns():
     with open(fCFG, 'r') as fin:
         
         while (line := fin.readline().rstrip()):
-
-            line = line.replace("-", '')
-            line = line.replace(" ", '')
+            
+            line = line.replace('-', '')
+            line = line.replace(' ', '')
+            line = line.replace('"', '')
 
             line = line.split(">")
 
             if line[0] == 'NN':
-                s = line[1].split('|')
-                       
+                nouns.append(line[1])
+
     fin.close()
 
-    return(s)
+    return(nouns)
 
 # getNouns
 
@@ -61,17 +61,18 @@ def getNames():
         
         while (line := fin.readline().rstrip()):
 
-            line = line.replace("-", '')
-            line = line.replace(" ", '')
+            line = line.replace('-', '')
+            line = line.replace(' ', '')
+            line = line.replace('"', '')
 
             line = line.split(">")
 
             if line[0] == 'NNP':
-                s = line[1].split('|')
+                names.append(line[1])
                        
     fin.close()
     
-    return(s)
+    return(names)
 
 # End getNames()
 
@@ -253,19 +254,14 @@ def getSentence():
 ###
 def chkGrammar(s):
 
-##    simpleGrammar = nltk.data.load('file:/home/gary/src/simpleton/simp3.cfg')
-##    simpleGrammar = nltk.data.load('file:/home/gary/src/simpleton/simpPTPoS.cfg')
     simpleGrammar = nltk.data.load('file:' + str(fCFG))
-
-    fm = '/home/gary/src/simpleton/simpMem.txt'
-    fmMode = 'a'
 
     rd_parser = nltk.RecursiveDescentParser(simpleGrammar) #, trace=2)
     treesFound = []
 
     slist = s.split()
 
-    fmem = open(fm, fmMode)
+    fl = open(flog, 'a')
 
     try:
         for tree in rd_parser.parse(slist):
@@ -276,17 +272,17 @@ def chkGrammar(s):
             fmem.write('Input: ' + str(s) + ' - did not produce a tree:\n')
             tok_s = word_tokenize(s)
             pos_s = nltk.pos_tag(tok_s)
-            fmem.write('Simple tokenizer: ' + str(pos_s) + '\n')
+            fl.write('Simple tokenizer: ' + str(pos_s) + '\n')
             retCode = 0
         else:
-            fmem = open(fm, fmMode)
-            fmem.write('Input: ' + str(s) + ' - produced:\n')
+##?            fmem = open(fm, fmMode)
+            fl.write('Input: ' + str(s) + ' - produced:\n')
             for t in treesFound:
-                fmem.write(str(t))
-                fmem.write('\n')
+                fl.write(str(t))
+                fl.write('\n')
             tok_s = word_tokenize(s)
             pos_s = nltk.pos_tag(tok_s)
-            fmem.write('Simple tokenizer: ' + str(pos_s) + '\n')
+            fl.write('Simple tokenizer: ' + str(pos_s) + '\n')
             
 #            retCode = len(treesFound)
             retCode = treesFound
@@ -298,7 +294,7 @@ def chkGrammar(s):
 #        retCode = -1
         retCode = err
         
-    fmem.close()
+    fl.close()
     
     return retCode
 
@@ -358,10 +354,13 @@ def searchMeaning(s, names, nouns):
     matchedIsA = []
     matchedCanDo = []
 
+    fl = open(flog, 'a')
+
     s = s.split(' ')
-    print('**--> searching for relationships:')
-    print('**--> Input s: ')
-    print(str(s))
+    print('\tTop of searchMeaning:')
+#    print('\tInput s: ')
+#    print(str(s))
+    fl.write('\tTop of searchMeaning: Input:' + str(s) + '\n')
 
     # Build lists of names and nouns from input sentense
     for w in s:
@@ -373,84 +372,113 @@ def searchMeaning(s, names, nouns):
             if w == noun.name:
                 sNouns.append(noun)
                 
-    print("**--> NNPs Found (" + str(len(sNames)) + ").")
+    print("\tNNPs Found (" + str(len(sNames)) + ").")
+    fl.write("\tNNPs Found (" + str(len(sNames)) + ").\n")
     print(str(sNames))
-    print("**--> NNs Found (" + str(len(sNouns)) + ").")
+    fl.write(str(sNames) + '\n')
+    print("\tNNs Found (" + str(len(sNouns)) + ").")
+    fl.write("\tNNs Found (" + str(len(sNouns)) + ").\n")
     print(str(sNouns))
-    print("----------------------")
-
+    fl.write(str(sNouns) + '\n')
+    print("\t----------------------")
+    fl.write("\t----------------------\n")
+    
     # Of the names found in the input sentense
     # extract their isA(s) and canDo(s)
     for sn in sNames:
-        print("**-->NNP Object:")
-        print(sn.name, sn.gender, sn.isA, sn.canDo, sep=' ; ')
+#        print("\tNNP Object:")
+#        print(sn.name, sn.gender, sn.isA, sn.canDo, sep=' ; ')
+        fl.write("\tNNP Object:\n")
+        fl.write(sn.name + ' ; ' + sn.gender + ' ; ' + sn.isA + ' ; ' + sn.canDo + '\n')
         isAs = sn.isA
         canDos = sn.canDo
 
-        print("**--> NNP Obj name: " + str(sn.name))
+#        print("\tNNP Obj name: " + str(sn.name))
+        fl.write("\tNNP Obj name: " + str(sn.name) + "\n")
         
-        if isAs != "DK":
+        if isAs != "UNK":
             isAs = isAs.split(',')
-            print("**--> Split isAs: ")
-            print(str(isAs))
+#            print("\tSplit isAs: ")
+#            print(str(isAs))
+            fl.write("\tSplit isAs: " + str(isAs) + "\n")
         else:
-            print("**--> Obj isA: ")
-            print(str(sn.isA))
+#            print("\tObj isA: ")
+#            print(str(sn.isA))
+            fl.write("\tObj isA: " + str(sn.isA) + "\n")
 
-        if canDos != "DK":
+        if canDos != "UNK":
             canDos = canDos.split(',')
-            print("**--> Split canDos: ")
-            print(str(canDos))
+#            print("\tSplit canDos: ")
+#            print(str(canDos))
+            fl.write("\tSplit canDos: " + str(canDos) + "\n")
 
             for w in s:
                 if w in canDos:
-                    print("**==>Match: " + str(sn.name) + " " + str(w))
+                    print("\tMatch: " + str(sn.name) + " " + str(w))
+                    fl.write("\tMatch: " + str(sn.name) + " " + str(w) + "\n")
                     matchedCanDo.append(str(sn.name) + " " + str(w))
                     
         else:
-            print("**--> Obj canDos: " + str(sn.canDo))
+            print("\tObj canDos: " + str(sn.canDo))
+            fl.write("\tObj canDos: " + str(sn.canDo) + "\n")
         
 
-    print("----------------------")
+    print("\t----------------------")
+    fl.write("\t----------------------\n")
     # Of the nouns found in the input sentense
     # extract their isA(s)    
     for n in sNouns:
-        print("**-->NN Object:")
-        print(n.name, n.isA, n.canDo, sep=' ; ')
+#        print("\tNN Object:")
+#        print(n.name, n.isA, n.canDo, sep=' ; ')
+        fl.write("\tNN Object:\n")
+        fl.write(n.name + ' ; ' +  n.isA + ' ; ' + n.canDo + '\n')
         isAs = n.isA
         canDos = n.canDo
         
-        print("**--> NN Obj name: " + str(n.name))
+#        print("\tNN Obj name: " + str(n.name))
+        fl.write("\tNN Obj name: " + str(n.name))
         
-        if isAs != "DK":
+        if isAs != "UNK":
             isAs = isAs.split(',')
-            print("**--> Split isAs: ")
-            print(str(isAs))
+#            print("\tSplit isAs: ")
+#            print(str(isAs))
+            fl.write("\tSplit isAs:\n")
+            fl.write(str(isAs) + '\n')
         else:
-            print("**--> Obj isA: ")
-            print(str(n.isA))
+#            print("\tObj isA: ")
+#            print(str(n.isA))
+            fl.write("\tObj isA:\n")
+            fl.write(str(n.isA) + '\n')
         
-        if canDos != "DK":
+        if canDos != "UNK":
             canDos = canDos.split(',')
-            print(" Split canDos: ")
-            print(str(canDos))
+#            print("\tSplit canDos: ")
+#            print(str(canDos))
+            fl.write("\tSplit canDos:\n")
+            fl.write(str(canDos) + '\n')
 
             for w in s:
                 if w in canDos:
-                    print("**-->Match: " + str(n.name) + " " + str(w))
+                    print("\tMatch: " + str(n.name) + " " + str(w))
+                    fl.write("\tMatch: " + str(n.name) + " " + str(w) + '\n')
                     matchedCanDo.append(str(n.name) + " " + str(w))
             
         else:
-            print("**--> Obj canDos: " + str(n.canDo))
+            print("\tObj canDos: " + str(n.canDo))
+            fl.write("\tObj canDos: " + str(n.canDo) + '\n')
 
     if len(matchedCanDo) > 0:
         for d in matchedCanDo:
-            print("**--> matchedCanDo: " + str(d))
+            print("\tmatchedCanDo: " + str(d))
+            fl.write("\tmatchedCanDo: " + str(d) + '\n')
             relationFound = True
     else:
-        print("**--> No relationships found.")
+        print("\tNo relationships found.")
+        fl.write("\tNo relationships found.\n")
         relationFound = False
-        
+
+    fl.close()
+    
     return relationFound
 # End searchMeaning(s)
 

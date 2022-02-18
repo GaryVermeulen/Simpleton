@@ -1,3 +1,4 @@
+Simp:self,I,me
 Bob:man
 John:man
 Pookie:cat
@@ -12,3 +13,4 @@ telescope:
 park:
 bus:
 duck:
+self:I,me

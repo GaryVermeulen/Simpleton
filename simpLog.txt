@@ -1,0 +1,183 @@
+=== START RUN AT: 02/18/2022 13:36:17===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.----------------------Simp : UNK : self,I,me : compute
+=== START RUN AT: 02/18/2022 13:36:58===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.----------------------Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+=== START RUN AT: 02/18/2022 13:38:20===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+=== START RUN AT: 02/18/2022 13:51:22 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+
+=== START RUN AT: 02/18/2022 14:18:23 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'walked', 'Pookie', 'in', 'the', 'park']
+	NNPs Found (2).
+[NP(name='Mary', gender='UNK', isA='UNK', canDo='saw,ate,walked,ran'), NP(name='Pookie', gender='UNK', isA='cat', canDo='saw,ate,walked,ran')]
+	NNs Found (1).
+[Nouns(name='park', isA='', canDo='')]
+	----------------------
+	NNP Object:
+Mary ; UNK ; UNK ; saw,ate,walked,ran
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['saw', 'ate', 'walked', 'ran']
+	Match: Mary walked
+	NNP Object:
+Pookie ; UNK ; cat ; saw,ate,walked,ran
+	NNP Obj name: Pookie
+	Split isAs: ['cat']
+	Split canDos: ['saw', 'ate', 'walked', 'ran']
+	Match: Pookie walked
+	----------------------
+	NN Object:
+park ;  ; 
+	NN Obj name: park	Split isAs:
+['']
+	Split canDos:
+['']
+	matchedCanDo: Mary walked
+	matchedCanDo: Pookie walked
+
+=== START RUN AT: 02/18/2022 14:31:43 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+Input: Bob walked Mary in the park - produced:
+(S
+  (NP (NNP Bob))
+  (VP
+    (VB walked)
+    (NP (NNP Mary))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Bob', 'NNP'), ('walked', 'VBD'), ('Mary', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+	Top of searchMeaning: Input:['Bob', 'walked', 'Mary', 'in', 'the', 'park']
+	NNPs Found (2).
+[NP(name='Bob', gender='UNK', isA='man', canDo='saw,ate,walked,ran'), NP(name='Mary', gender='UNK', isA='UNK', canDo='saw,ate,walked,ran')]
+	NNs Found (1).
+[Nouns(name='park', isA='', canDo='')]
+	----------------------
+	NNP Object:
+Bob ; UNK ; man ; saw,ate,walked,ran
+	NNP Obj name: Bob
+	Split isAs: ['man']
+	Split canDos: ['saw', 'ate', 'walked', 'ran']
+	Match: Bob walked
+	NNP Object:
+Mary ; UNK ; UNK ; saw,ate,walked,ran
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['saw', 'ate', 'walked', 'ran']
+	Match: Mary walked
+	----------------------
+	NN Object:
+park ;  ; 
+	NN Obj name: park	Split isAs:
+['']
+	Split canDos:
+['']
+	matchedCanDo: Bob walked
+	matchedCanDo: Mary walked

@@ -4,10 +4,13 @@
 #
 #
 
+from datetime import datetime
 from dataclasses import dataclass
 import simpMod as sm
 import nltk
 from nltk import word_tokenize
+
+flog = 'simpLog.txt'
 
 @dataclass
 class NP:
@@ -30,72 +33,87 @@ class Nouns:
 myNames = []
 myNouns = []
 
+f = open(flog, 'a')
+now = datetime.now()
+
 print("Simple-Ton, A ton of simple things to do.")
 print("Reading data, one moment please...")
+dt = now.strftime("%m/%d/%Y %H:%M:%S")
 
-# Build a list of nouns (N) from lex
-##cfgNouns = sm.getNouns()
-##print(str(len(cfgNouns)) + " Nouns (NN) read.")
+f.write('\n=== START RUN AT: ' + str(dt) + ' ===\n')
+
+# Build a list of nouns (NN) from cfg
+cfgNouns = sm.getNouns()
+print(str(len(cfgNouns)) + " Nouns (NN) read.")
+f.write(str(len(cfgNouns)) + ' Nouns (NN) read.\n')
 
 # Build a list of names (NP) from lex
-##cfgNames = sm.getNames()
-##print(str(len(cfgNames)) + " Proper Nouns (NP) read.")
+cfgNames = sm.getNames()
+print(str(len(cfgNames)) + " Proper Nouns (NNP) read.")
+f.write(str(len(cfgNames)) + ' Proper Nouns (NNP) read.\n')
 
 # Build an isA list from KB
-##isA = sm.getIsA()
-##print(str(len(isA)) + " isA relations read.")
+isA = sm.getIsA()
+print(str(len(isA)) + " isA relations read.")
+f.write(str(len(isA)) + ' isA relations read.\n')
 
 # Build an canDo list from KB
-##canDo = sm.getCanDo()
-##print(str(len(canDo)) + " canDo relations read.")
+canDo = sm.getCanDo()
+print(str(len(canDo)) + " canDo relations read.")
+f.write(str(len(canDo)) + " canDo relations read.\n")
 
 # Build a list of name (NP) objects with attributes from KBs
-#for name in cfgNames:
-#    name_isA = "DK"
-#    name = name.replace('"', '')    
-#    for x in isA:
-#        if x[0] == name:
-#            if x[1] != '':
-#                name_isA = x[1]
-#
-#    name_canDo = "DK"
-#    for x in canDo:
-#        if x[0] == name:
-#            if x[0] != '':
-#                name_canDo = x[1]
-#    
-#    myNames.append(NP(name,"DK",name_isA,name_canDo))
-#
-print("----------------------")
+for name in cfgNames:
+    name_isA = "UNK"
+    name = name.replace('"', '')    
+    for x in isA:
+        if x[0] == name:
+            if x[1] != '':
+                name_isA = x[1]
 
-#for obj in myNames:
-#    print(obj.name, obj.gender, obj.isA, obj.canDo, sep=' : ')
-#
-#print("----------------------")
-
-# Build a list of noun (N) objects with attributes from KBs
-#for noun in cfgNouns:
-#    noun_isA = "DK"
-#    noun = noun.replace('"', '')
+    name_canDo = "UNK"
+    for x in canDo:
+        if x[0] == name:
+            if x[0] != '':
+                name_canDo = x[1]
     
-#    print(noun)
-#    for x in isA:
-#        if x[0] == noun:
-#            if x[0] != '':
-#                noun_isA = x[1]
+    myNames.append(NP(name,"UNK",name_isA,name_canDo))
 
-#    noun_canDo = "DK"
-#    for x in canDo:
-#        if x[0] == noun:
-#            if x[0] != '':
-#                noun_canDo = x[1]
+print("----------------------")
+f.write("----------------------\n")
+
+for obj in myNames:
+    print(obj.name, obj.gender, obj.isA, obj.canDo, sep=' : ')
+    f.write(obj.name + ' : ' + obj.gender + ' : ' + obj.isA + ' : ' + obj.canDo + '\n')
+
+print("----------------------")
+f.write("----------------------\n")
+
+# Build a list of noun (NN) objects with attributes from KBs
+for noun in cfgNouns:
+    noun_isA = "UNK"
+    noun = noun.replace('"', '')
+    
+    for x in isA:
+        if x[0] == noun:
+            if x[0] != '':
+                noun_isA = x[1]
+
+    noun_canDo = "UNK"
+    for x in canDo:
+        if x[0] == noun:
+            if x[0] != '':
+                noun_canDo = x[1]
                 
-#    myNouns.append(Nouns(noun,noun_isA,noun_canDo))
+    myNouns.append(Nouns(noun,noun_isA,noun_canDo))
 
-#for o in myNouns:
-#    print(o.name, o.isA, o.canDo, sep=' ')
+for o in myNouns:
+    print(o.name, o.isA, o.canDo, sep=' : ')
+    f.write(o.name + ' : ' + o.isA + ' : ' + o.canDo + '\n')
 
-#print("----------------------")
+print("----------------------")
+f.write("----------------------\n")
+f.close()
 
 loop = True
 
@@ -105,7 +123,7 @@ while loop:
     speak = True
     
     while speak:
-        response = input('Input or Output<Ii/Oo>?')
+        response = input('Input or Output<I/O>?')
 
         if response in 'Oo':
             relationFound = False
@@ -140,7 +158,7 @@ while loop:
 
         if retCode == 0:
             print('-->>Unable to find any productions in existing grammar')
-#            sm.searchMeaning(s, myNames, myNouns)
+            sm.searchMeaning(s, myNames, myNouns)
     
         elif isinstance(retCode, ValueError):
             print('-->>retCode returned a ValueError' + str(ValueError))
@@ -151,7 +169,7 @@ while loop:
         elif isinstance(retCode, list):
             print('-->>Input is grammatically correct per CFG')
             print('-->>Searching for relationships and/or meaning...')
-#            sm.searchMeaning(s, myNames, myNouns)
+            sm.searchMeaning(s, myNames, myNouns)
         else:
             print('-->>Something unexpected happened')
         
