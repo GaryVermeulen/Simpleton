@@ -269,7 +269,7 @@ def chkGrammar(s):
             print('>' + str(tree) + '<')
 
         if len(treesFound) == 0:
-            fmem.write('Input: ' + str(s) + ' - did not produce a tree:\n')
+            fl.write('Input: ' + str(s) + ' - did not produce a tree:\n')
             tok_s = word_tokenize(s)
             pos_s = nltk.pos_tag(tok_s)
             fl.write('Simple tokenizer: ' + str(pos_s) + '\n')
