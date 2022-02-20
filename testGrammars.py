@@ -16,7 +16,8 @@ fCFG = 'simp2a.cfg'
 #testSentence = 'Mary saw Pookie in the park with a telescope'
 #testSentence = 'with a telescope Mary saw Pookie in the park'
 #testSentence = 'the cat saw Mary in the park with a telescope'
-testSentence = 'I saw Mary in the park with a telescope'
+#testSentence = 'with a telescope Mary saw Pookie in the park'
+testSentence = 'with a cat park saw Pookie in the telescope'
 
 def chkGrammar(s, traceLevel):
 

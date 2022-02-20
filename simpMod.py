@@ -11,7 +11,7 @@ import random as rd
 
 # CFG file
 #
-fCFG = 'simp2a.cfg'
+fCFG = 'simp.cfg'
 
 #
 # Lexicon
@@ -495,19 +495,12 @@ def addWord(nw):
 
     nw = nw.replace(",", '')
 
-#    print(len(nw))
-#    print('>' + str(nw) + '<')
-#    print(nw)
-#    print(type(nw))
-
     tok_nw = word_tokenize(nw)
     pos_nw = pos_tag(tok_nw)
-#    print(pos_nw)
 
     print('NLTK tagged input as:')
     for w in pos_nw:
         print(w)
-#        print(type(w))
         
         response = input('Is the above tag correct <Yy>?')
 
@@ -517,59 +510,45 @@ def addWord(nw):
             new_w = (w0, c_tag)
             pos_nw[idx] = new_w
             print('You have entered: ' + str(new_w))
-#            print(type(w))
 
         idx = idx + 1
-        
-    print(pos_nw)
 
-    # Reading CFG
-    #
+    # Read existing CFG
     with open(fCFG, 'r') as fin:        
         while (line := fin.readline().rstrip()):        
             lines.append(line)
     fin.close()
 
+    inserted = False
+    
+    # Search for the end of the given section ex: NN, NNP, DT, etc.
+    for new in pos_nw:
+
+        nw = new[0]
+        nt = new[1]
+    
+        lin_no = 0
+        match = False
+        for l in lines:
+            l = l.replace("-", '')
+            l = l.replace(" ", '')
+            l = l.split(">")
+
+            if l[0] == nt:
+                match = True
+
+            if l[0] == '#' and match:
+                lines.insert(lin_no, str(nt) + ' -> "' + str(nw) +'"')
+                inserted = True
+                break
+
+            lin_no += 1
+        
+    # Overwrite with new input
+    f = open(fCFG, 'w')
     for l in lines:
-        print(l)
-
-        l = l.replace("-", '')
-        l = l.replace(" ", '')
-        l = l.split(">")
-
-        print(l)
-
-
-        for w in pos_nw:
-            print(w)
-            if l[0] == w[1]:
-                print('== l[0]: ' + str(l[0]))
-                print('   l[1]: ' + str(l[1]))
-                print('== w[1]: ' + str(w[1]))
-                print('   w[0]: ' + str(w[0]))
-
-                # Does the new word exist? If not add it...
-                #
-                
-                word_added.append(w)
-
-            else:
-                if w not in tag_not_found:
-                    tag_not_found.append(w)
-                
-   
-    if len(tag_not_found) > 0:
-        for t in tag_not_found:
-            print('-- Tag not in CFG: ' + str(t))
-
-##    f = open(fLex, fAMode)
-##    f.write(str(nw) + ',' + str(response))
-##    f.close()
-
-#    print(str(nw) + ',' + str(response) + ' added to lexicon')
-#    print("Rebuilding CFG & KBs...")
-
-#    buildKBs(nw, response)
+        f.write(l + '\n')
+    f.close()
 
     print('End addWord.')
       
@@ -591,18 +570,6 @@ def learningMode(nW):
     nW = nW.replace("'", '')
 
     addWord(nW)
-    
-#    res = input('[M]anual add, [A]uto-add, or [E]xit <M/A/E>?')
-#    if res in 'Mm':
-#        print('Manual add')
-#        for w in nWs:
-#            w = w.strip()
-#            addWord(w)
-#    elif res in 'Aa':
-#        print('Auto-add')
-#    else:
-#        print('Else Exit')
-
     
 
     print('Exiting Learning Mode.')

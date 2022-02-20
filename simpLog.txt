@@ -181,3 +181,715 @@ park ;  ;
 ['']
 	matchedCanDo: Bob walked
 	matchedCanDo: Mary walked
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+Input: Mary walked Pookie in the park - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+
+=== START RUN AT: 02/20/2022 09:42:37 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 09:55:56 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:01:35 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:02:58 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:04:42 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:14:53 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:17:01 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:18:50 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:22:57 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:28:19 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:33:18 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:34:34 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:37:15 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:43:28 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:46:46 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:48:35 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:49:57 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 10:58:59 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 11:00:53 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+	Top of searchMeaning: Input:['an', 'cat', 'saw', 'with', 'a', 'man']
+	NNPs Found (0).
+[]
+	NNs Found (2).
+[Nouns(name='cat', isA='', canDo='saw,ate,walked,ran'), Nouns(name='man', isA='', canDo='saw,ate,walked,ran')]
+	----------------------
+	----------------------
+	NN Object:
+cat ;  ; saw,ate,walked,ran
+	NN Obj name: cat	Split isAs:
+['']
+	Split canDos:
+['saw', 'ate', 'walked', 'ran']
+	Match: cat saw
+	NN Object:
+man ;  ; saw,ate,walked,ran
+	NN Obj name: man	Split isAs:
+['']
+	Split canDos:
+['saw', 'ate', 'walked', 'ran']
+	Match: man saw
+	matchedCanDo: cat saw
+	matchedCanDo: man saw
+
+=== START RUN AT: 02/20/2022 11:02:22 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 11:03:16 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 11:07:26 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 11:11:30 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 11:12:34 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 11:15:35 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 11:17:01 ===
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+Sam : UNK : man : saw,ate,walked,ran
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+duck :  : saw,ate,walked,ran,fly
+bus :  : 
+----------------------
+
+=== START RUN AT: 02/20/2022 11:27:27 ===
+7 Nouns (NN) read.
+7 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : saw,ate,walked,ran
+Mary : UNK : UNK : saw,ate,walked,ran
+Bob : UNK : man : saw,ate,walked,ran
+Pookie : UNK : cat : saw,ate,walked,ran
+Pete : UNK : man : saw,ate,walked,ran
+Janet : UNK : UNK : UNK
+----------------------
+self : I,me : UNK
+cat :  : saw,ate,walked,ran
+man :  : saw,ate,walked,ran
+dog :  : saw,ate,walked,ran
+telescope :  : 
+park :  : 
+bus :  : 
+----------------------
