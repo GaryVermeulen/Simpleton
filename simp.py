@@ -29,7 +29,6 @@ class Nouns:
     isA: str
     canDo: str
     
-
 myNames = []
 myNouns = []
 
@@ -165,6 +164,7 @@ while loop:
 
             if sm.myErrHandler(retCode):
                 sm.learningMode(retCode)
+                loop = False
     
         elif isinstance(retCode, list):
             print('-->>Input is grammatically correct per CFG')
@@ -175,7 +175,6 @@ while loop:
         
     else:
         loop = False
-        
     
 print('End Simple-Ton.')
 

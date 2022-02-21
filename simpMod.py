@@ -486,19 +486,18 @@ def searchMeaning(s, names, nouns):
 ###
 def addWord(nw):
 
-    tag_not_found = []
-    word_added = []
+    words_added = 0
     lines = []
     idx = 0
-
-    print('Entering addWord...')
 
     nw = nw.replace(",", '')
 
     tok_nw = word_tokenize(nw)
     pos_nw = pos_tag(tok_nw)
 
+    print('Entering addWord with ' + str(len(tok_nw)) + ' words to add.')
     print('NLTK tagged input as:')
+    
     for w in pos_nw:
         print(w)
         
@@ -519,7 +518,7 @@ def addWord(nw):
             lines.append(line)
     fin.close()
 
-    inserted = False
+    
     
     # Search for the end of the given section ex: NN, NNP, DT, etc.
     for new in pos_nw:
@@ -539,7 +538,7 @@ def addWord(nw):
 
             if l[0] == '#' and match:
                 lines.insert(lin_no, str(nt) + ' -> "' + str(nw) +'"')
-                inserted = True
+                words_added += 1
                 break
 
             lin_no += 1
@@ -550,7 +549,7 @@ def addWord(nw):
         f.write(l + '\n')
     f.close()
 
-    print('End addWord.')
+    print('End addWord -- Added ' + str(words_added) + ' words to CFG file.')
       
     return
 
@@ -574,7 +573,7 @@ def learningMode(nW):
 
     print('Exiting Learning Mode.')
 
-    return
+    return True
 # End learningMode
 
 
