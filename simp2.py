@@ -122,13 +122,14 @@ et = endTime.strftime("%m/%d/%Y %H:%M:%S")
 
 elpTime = endTime - startTime
 
-print("--- endTime: " + str(et) + "\n")
-print(type(elpTime))
-print(str(elpTime))
+print("--- endTime: " + str(et))
+print("--- elapsed time: " + str(elpTime))
 
 
 f.write("----------------------\n")
 f.write("--- reading of data completed ---\n")
+f.write("--- end time: " + str(et) + "\n")
+f.write("--- elapsed time: " + str(elpTime) + "\n")
 f.close()
 
 loop = True
@@ -145,8 +146,6 @@ while loop:
     if cmd == 'c' or cmd == 'C': # Chat
         s = input("Enter a short sentence: ")
 
-        
-        
     elif cmd == 's' or cmd == 'S': # Speak
         # Randomly generates a sentence from the exiting CFG
         # 
@@ -232,21 +231,27 @@ while loop:
         loop = False
 
     now = datetime.now()
-    dt = now.strftime("%m/%d/%Y %H:%M:%S")
+    elt = now.strftime("%m/%d/%Y %H:%M:%S")
+    elooptime = now - sLoopTime
 
     f = open(flog, 'a')
-    print('=== END LOOP AT: ' + str(dt) + ' ===')
-    f.write('\n=== END LOOP AT: ' + str(dt) + ' ===\n')
+    print('=== END LOOP AT: ' + str(elt) + ' ===')
+    print('=== elapsed loop time: ' + str(elooptime))
+    
+    f.write('\n=== END LOOP AT: ' + str(elt) + ' ===\n')
+    f.write('=== elapsed loop time: ' + str(elooptime) + ' ===\n')
     f.close()
         
 
 now = datetime.now()
 dt = now.strftime("%m/%d/%Y %H:%M:%S")
+run_et = now - startTime
 
 f = open(flog, 'a')    
-
 print('*** END RUN AT: ' + str(dt) + ' ***')
+print('*** elapsed run time: ' + str(run_et) + ' ***')
 f.write('\n*** END RUN AT: ' + str(dt) + ' ***\n')
+f.write('*** elapsed run time: ' + str(run_et) + '\n')
 f.close()
 
 print('End Simple-Ton.')
