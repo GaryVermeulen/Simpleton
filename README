@@ -1,16 +1,2 @@
-Simpleton (From Sponge Bob SquarePants: Simple-Ton, 
-A ton of simple things to do.) is a POC project which 
-is not intended for production nor scaleup and is 
-neither efficient nor eloquent.
-
-It is an exploration to start an AI model small with
-very little data (currently less than 50 words in the 
-lexicon), and with minimal, but expandable KB's. Also, 
-along the way, to develop learning algorithms that 
-are not based on using predictive techniques which 
-use large corpora.
-
-The idea is from the understanding that a child does 
-not read million-word corpora to understand 
-“See Dick run with the ball”.
+YATAIP: Yet Another Toy AI Project
 
