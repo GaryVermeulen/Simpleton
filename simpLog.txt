@@ -1,0 +1,1006 @@
+
+*** START RUN AT: 04/30/2022 08:35:26 ***
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : UNK : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : I,me : UNK
+cat :  : see,eat,walk,run
+man :  : see,eat,walk,run
+dog :  : see,eat,walk,run
+telescope :  : 
+park :  : 
+bus :  : 
+duck :  : see,eat,walk,run,fly
+----------------------
+--- reading of data completed ---
+--- end time: 04/30/2022 08:35:26
+--- elapsed time: 0:00:00.258388
+
+=== START LOOP AT: 04/30/2022 08:35:55 ===
+Input: ['Mary', 'walked', 'Pookie', 'in', 'the', 'park'] - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (NN park)))))
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'walked', 'Pookie', 'in', 'the', 'park']
+	NNPs Found (2).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run'), NPP(name='Pookie', gender='UNK', isA='cat', canDo='see,eat,walk,run')]
+	NNs Found (1).
+[NN(name='park', isA='', canDo='')]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary walk
+	NNP Object:
+Pookie ; UNK ; cat ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Pookie
+	Split isAs: ['cat']
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Pookie walk
+	-NN---------------------
+	NN Object:
+park ;  ; 
+	NN Obj name: park	Split isAs:
+['']
+	Split canDos:
+['']
+	-Conclusion---------------------
+	matchedCanDo: Mary walk
+	matchedCanDo: Pookie walk
+
+=== END LOOP AT: 04/30/2022 08:36:07 ===
+=== elapsed loop time: 0:00:12.277271 ===
+
+=== START LOOP AT: 04/30/2022 08:36:46 ===
+Input: ['Mary', 'saw', 'Pookie', 'in', 'the', 'park'] - did not produce a tree:
+Simple tokenizer: [('Mary', 'NNP'), ('saw', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'saw', 'Pookie', 'in', 'the', 'park']
+	NNPs Found (2).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run'), NPP(name='Pookie', gender='UNK', isA='cat', canDo='see,eat,walk,run')]
+	NNs Found (1).
+[NN(name='park', isA='', canDo='')]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary see
+	NNP Object:
+Pookie ; UNK ; cat ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Pookie
+	Split isAs: ['cat']
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Pookie see
+	-NN---------------------
+	NN Object:
+park ;  ; 
+	NN Obj name: park	Split isAs:
+['']
+	Split canDos:
+['']
+	-Conclusion---------------------
+	matchedCanDo: Mary see
+	matchedCanDo: Pookie see
+
+=== END LOOP AT: 04/30/2022 08:36:58 ===
+=== elapsed loop time: 0:00:11.988463 ===
+
+=== START LOOP AT: 04/30/2022 08:37:19 ===
+Input: ['Mary', 'saw', 'the', 'cat', 'in', 'the', 'park', 'with', 'a', 'telescope'] - did not produce a tree:
+Simple tokenizer: [('Mary', 'NNP'), ('saw', 'VBD'), ('the', 'DT'), ('cat', 'NN'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN'), ('with', 'IN'), ('a', 'DT'), ('telescope', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'saw', 'the', 'cat', 'in', 'the', 'park', 'with', 'a', 'telescope']
+	NNPs Found (1).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run')]
+	NNs Found (3).
+[NN(name='cat', isA='', canDo='see,eat,walk,run'), NN(name='park', isA='', canDo=''), NN(name='telescope', isA='', canDo='')]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary see
+	-NN---------------------
+	NN Object:
+cat ;  ; see,eat,walk,run
+	NN Obj name: cat	Split isAs:
+['']
+	Split canDos:
+['see', 'eat', 'walk', 'run']
+	Match: cat see
+	NN Object:
+park ;  ; 
+	NN Obj name: park	Split isAs:
+['']
+	Split canDos:
+['']
+	NN Object:
+telescope ;  ; 
+	NN Obj name: telescope	Split isAs:
+['']
+	Split canDos:
+['']
+	-Conclusion---------------------
+	matchedCanDo: Mary see
+	matchedCanDo: cat see
+
+=== END LOOP AT: 04/30/2022 08:37:48 ===
+=== elapsed loop time: 0:00:29.220747 ===
+
+=== START LOOP AT: 04/30/2022 08:38:13 ===
+Input: ['Mary', 'saw', 'Pookie', 'in', 'the', 'park', 'with', 'a', 'telescope'] - did not produce a tree:
+Simple tokenizer: [('Mary', 'NNP'), ('saw', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN'), ('with', 'IN'), ('a', 'DT'), ('telescope', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'saw', 'Pookie', 'in', 'the', 'park', 'with', 'a', 'telescope']
+	NNPs Found (2).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run'), NPP(name='Pookie', gender='UNK', isA='cat', canDo='see,eat,walk,run')]
+	NNs Found (2).
+[NN(name='park', isA='', canDo=''), NN(name='telescope', isA='', canDo='')]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary see
+	NNP Object:
+Pookie ; UNK ; cat ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Pookie
+	Split isAs: ['cat']
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Pookie see
+	-NN---------------------
+	NN Object:
+park ;  ; 
+	NN Obj name: park	Split isAs:
+['']
+	Split canDos:
+['']
+	NN Object:
+telescope ;  ; 
+	NN Obj name: telescope	Split isAs:
+['']
+	Split canDos:
+['']
+	-Conclusion---------------------
+	matchedCanDo: Mary see
+	matchedCanDo: Pookie see
+
+=== END LOOP AT: 04/30/2022 08:38:37 ===
+=== elapsed loop time: 0:00:23.749905 ===
+
+=== START LOOP AT: 04/30/2022 08:39:14 ===
+Input: ['Mary', 'saw', 'a', 'cat', 'in', 'the', 'park', 'with', 'a', 'telescope'] - did not produce a tree:
+Simple tokenizer: [('Mary', 'NNP'), ('saw', 'VBD'), ('a', 'DT'), ('cat', 'NN'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN'), ('with', 'IN'), ('a', 'DT'), ('telescope', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'saw', 'a', 'cat', 'in', 'the', 'park', 'with', 'a', 'telescope']
+	NNPs Found (1).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run')]
+	NNs Found (3).
+[NN(name='cat', isA='', canDo='see,eat,walk,run'), NN(name='park', isA='', canDo=''), NN(name='telescope', isA='', canDo='')]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary see
+	-NN---------------------
+	NN Object:
+cat ;  ; see,eat,walk,run
+	NN Obj name: cat	Split isAs:
+['']
+	Split canDos:
+['see', 'eat', 'walk', 'run']
+	Match: cat see
+	NN Object:
+park ;  ; 
+	NN Obj name: park	Split isAs:
+['']
+	Split canDos:
+['']
+	NN Object:
+telescope ;  ; 
+	NN Obj name: telescope	Split isAs:
+['']
+	Split canDos:
+['']
+	-Conclusion---------------------
+	matchedCanDo: Mary see
+	matchedCanDo: cat see
+
+=== END LOOP AT: 04/30/2022 08:39:44 ===
+=== elapsed loop time: 0:00:29.282729 ===
+
+=== END LOOP AT: 04/30/2022 08:39:51 ===
+=== elapsed loop time: 0:00:37.084164 ===
+
+*** END RUN AT: 04/30/2022 08:39:51 ***
+*** elapsed run time: 0:04:25.913569
+
+*** START RUN AT: 04/30/2022 11:53:00 ***
+1 Nouns (NN) read.
+1 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp|John|Mary|Bob|Pookie|Pete|Jane|Sam : UNK : UNK : UNK
+----------------------
+self|cat|man|dog|telescope|park|duck|bus : UNK : UNK
+----------------------
+--- reading of data completed ---
+--- end time: 04/30/2022 11:53:00
+--- elapsed time: 0:00:00.062110
+
+=== START LOOP AT: 04/30/2022 11:53:13 ===
+Input: ['Mary', 'walked', 'Pookie', 'in', 'the', 'park'] - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VB walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'walked', 'Pookie', 'in', 'the', 'park']
+	NNPs Found (0).
+[]
+	NNs Found (0).
+[]
+	-NNP---------------------
+	-NN---------------------
+	-Conclusion---------------------
+	No relationships found.
+
+=== END LOOP AT: 04/30/2022 11:53:14 ===
+=== elapsed loop time: 0:00:00.240290 ===
+
+*** START RUN AT: 06/18/2022 09:49:24 ***
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : UNK : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : I,me : UNK
+cat :  : see,eat,walk,run
+man :  : see,eat,walk,run
+dog :  : see,eat,walk,run
+telescope :  : 
+park :  : 
+bus :  : 
+duck :  : see,eat,walk,run,fly
+----------------------
+--- reading of data completed ---
+--- end time: 06/18/2022 09:49:24
+--- elapsed time: 0:00:00.173347
+
+=== START LOOP AT: 06/18/2022 09:49:52 ===
+Input: ['Mary', 'saw', 'Pookie', 'in', 'the', 'park'] - did not produce a tree:
+Simple tokenizer: [('Mary', 'NNP'), ('saw', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'saw', 'Pookie', 'in', 'the', 'park']
+	NNPs Found (2).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run'), NPP(name='Pookie', gender='UNK', isA='cat', canDo='see,eat,walk,run')]
+	NNs Found (1).
+[NN(name='park', isA='', canDo='')]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary see
+	NNP Object:
+Pookie ; UNK ; cat ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Pookie
+	Split isAs: ['cat']
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Pookie see
+	-NN---------------------
+	NN Object:
+park ;  ; 
+	NN Obj name: park	Split isAs:
+['']
+	Split canDos:
+['']
+	-Conclusion---------------------
+	matchedCanDo: Mary see
+	matchedCanDo: Pookie see
+
+=== END LOOP AT: 06/18/2022 09:50:04 ===
+=== elapsed loop time: 0:00:12.331714 ===
+	Top of searchMeaning: Input:['which', 'could', 'two', 'cats', 'runs']
+	NNPs Found (0).
+[]
+	NNs Found (1).
+[NN(name='cat', isA='', canDo='see,eat,walk,run')]
+	-NNP---------------------
+	-NN---------------------
+	NN Object:
+cat ;  ; see,eat,walk,run
+	NN Obj name: cat	Split isAs:
+['']
+	Split canDos:
+['see', 'eat', 'walk', 'run']
+	Match: cat run
+	-Conclusion---------------------
+	matchedCanDo: cat run
+
+=== END LOOP AT: 06/18/2022 09:50:18 ===
+=== elapsed loop time: 0:00:26.174569 ===
+
+*** END RUN AT: 06/18/2022 09:50:18 ***
+*** elapsed run time: 0:00:53.973983
+
+*** START RUN AT: 06/18/2022 09:50:46 ***
+8 Nouns (NN) read.
+8 Proper Nouns (NNP) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : UNK : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : I,me : UNK
+cat :  : see,eat,walk,run
+man :  : see,eat,walk,run
+dog :  : see,eat,walk,run
+telescope :  : 
+park :  : 
+bus :  : 
+duck :  : see,eat,walk,run,fly
+----------------------
+--- reading of data completed ---
+--- end time: 06/18/2022 09:50:46
+--- elapsed time: 0:00:00.253101
+
+*** START RUN AT: 06/18/2022 11:29:11 ***
+8 Proper Nouns (NNP) read.
+8 Nouns (NN) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : UNK : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : I,me : UNK
+cat :  : see,eat,walk,run
+man :  : see,eat,walk,run
+dog :  : see,eat,walk,run
+telescope :  : 
+park :  : 
+bus :  : 
+duck :  : see,eat,walk,run,fly
+----------------------
+--- reading of data completed ---
+--- end time: 06/18/2022 11:29:11
+--- elapsed time: 0:00:00.245234
+
+=== END LOOP AT: 06/18/2022 11:29:38 ===
+=== elapsed loop time: 0:00:00.004728 ===
+
+*** END RUN AT: 06/18/2022 11:29:38 ***
+*** elapsed run time: 0:00:26.940628
+
+*** START RUN AT: 06/18/2022 11:38:33 ***
+8 Proper Nouns (NNP) read.
+8 Nouns (NN) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : UNK : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : I,me : UNK
+cat :  : see,eat,walk,run
+man :  : see,eat,walk,run
+dog :  : see,eat,walk,run
+telescope :  : 
+park :  : 
+bus :  : 
+duck :  : see,eat,walk,run,fly
+----------------------
+--- reading of data completed ---
+--- end time: 06/18/2022 11:38:34
+--- elapsed time: 0:00:00.235897
+
+=== START LOOP AT: 06/18/2022 11:38:47 ===
+Input: ['Mary', 'walked'] - produced:
+(S (NP (NNP Mary)) (VP (VBD walked)))
+(S (NP (NNP Mary)) (VP (VBN walked)))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD')]
+	Top of searchMeaning: Input:['Mary', 'walked']
+	NNPs Found (1).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run')]
+	NNs Found (0).
+[]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary walk
+	-NN---------------------
+	-Conclusion---------------------
+	matchedCanDo: Mary walk
+
+=== END LOOP AT: 06/18/2022 11:38:53 ===
+=== elapsed loop time: 0:00:05.868033 ===
+
+*** START RUN AT: 06/18/2022 11:40:28 ***
+8 Proper Nouns (NNP) read.
+8 Nouns (NN) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : UNK : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : I,me : UNK
+cat :  : see,eat,walk,run
+man :  : see,eat,walk,run
+dog :  : see,eat,walk,run
+telescope :  : 
+park :  : 
+bus :  : 
+duck :  : see,eat,walk,run,fly
+----------------------
+--- reading of data completed ---
+--- end time: 06/18/2022 11:40:28
+--- elapsed time: 0:00:00.244301
+
+=== START LOOP AT: 06/18/2022 11:40:31 ===
+Input: ['Mary', 'walked'] - produced:
+(S (NP (NNP Mary)) (VP (VBD walked)))
+(S (NP (NNP Mary)) (VP (VBN walked)))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD')]
+	Top of searchMeaning: Input:['Mary', 'walked']
+	NNPs Found (1).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run')]
+	NNs Found (0).
+[]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary walk
+	-NN---------------------
+	-Conclusion---------------------
+	matchedCanDo: Mary walk
+
+=== END LOOP AT: 06/18/2022 11:40:38 ===
+=== elapsed loop time: 0:00:07.380993 ===
+
+=== START LOOP AT: 06/18/2022 11:41:38 ===
+Input: ['Mary', 'walked'] - produced:
+(S (NP (NNP Mary)) (VP (VBD walked)))
+(S (NP (NNP Mary)) (VP (VBN walked)))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD')]
+	Top of searchMeaning: Input:['Mary', 'walked']
+	NNPs Found (1).
+[NPP(name='Mary', gender='UNK', isA='UNK', canDo='see,eat,walk,run')]
+	NNs Found (0).
+[]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; UNK ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Obj isA: UNK
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary walk
+	-NN---------------------
+	-Conclusion---------------------
+	matchedCanDo: Mary walk
+
+=== END LOOP AT: 06/18/2022 11:41:46 ===
+=== elapsed loop time: 0:00:08.282400 ===
+
+*** START RUN AT: 06/19/2022 07:49:06 ***
+8 Proper Nouns (NNP) read.
+8 Nouns (NN) read.
+16 isA relations read.
+15 canDo relations read.
+----------------------
+Simp : UNK : self,I,me : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : UNK : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : I,me : UNK
+cat :  : see,eat,walk,run
+man :  : see,eat,walk,run
+dog :  : see,eat,walk,run
+telescope :  : 
+park :  : 
+bus :  : 
+duck :  : see,eat,walk,run,fly
+----------------------
+--- reading of data completed ---
+--- end time: 06/19/2022 07:49:06
+--- elapsed time: 0:00:00.195362
+	Top of searchMeaning: Input:['flew', 'an', 'quick', 'self']
+	NNPs Found (0).
+[]
+	NNs Found (1).
+[NN(name='self', isA='I,me', canDo='UNK')]
+	-NNP---------------------
+	-NN---------------------
+	NN Object:
+self ; I,me ; UNK
+	NN Obj name: self	Split isAs:
+['I', 'me']
+	Obj canDos: UNK
+	-Conclusion---------------------
+	No relationships found.
+	Top of searchMeaning: Input:['a', 'very', 'hard', 'ducks', 'eat', 'quickest', 'fast', 'selves']
+	NNPs Found (0).
+[]
+	NNs Found (2).
+[NN(name='duck', isA='', canDo='see,eat,walk,run,fly'), NN(name='self', isA='I,me', canDo='UNK')]
+	-NNP---------------------
+	-NN---------------------
+	NN Object:
+duck ;  ; see,eat,walk,run,fly
+	NN Obj name: duck	Split isAs:
+['']
+	Split canDos:
+['see', 'eat', 'walk', 'run', 'fly']
+	Match: duck eat
+	NN Object:
+self ; I,me ; UNK
+	NN Obj name: self	Split isAs:
+['I', 'me']
+	Obj canDos: UNK
+	-Conclusion---------------------
+	matchedCanDo: duck eat
+
+=== END LOOP AT: 06/19/2022 07:49:28 ===
+=== elapsed loop time: 0:00:15.134239 ===
+
+*** END RUN AT: 06/19/2022 07:49:28 ***
+*** elapsed run time: 0:00:22.292311
+
+*** START RUN AT: 06/19/2022 08:51:25 ***
+8 Proper Nouns (NNP) read.
+14 Nouns (NN) read.
+20 isA relations read.
+16 canDo relations read.
+----------------------
+Simp : UNK : computer : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : woman : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : UNK : UNK
+cat : feline : see,eat,walk,run
+man : human : see,eat,walk,run
+woman : UNK : UNK
+Human : UNK : UNK
+dog : canine : see,eat,walk,run
+telescope :  : 
+bus :  : 
+duck : bird : see,eat,walk,run,fly
+bird : UNK : UNK
+computer : UNK : compute
+park : recreation-ground : 
+playground : park : UNK
+recreationground : UNK : UNK
+----------------------
+--- reading of data completed ---
+--- end time: 06/19/2022 08:51:26
+--- elapsed time: 0:00:00.289703
+
+=== START LOOP AT: 06/19/2022 08:51:29 ===
+Input: ['Mary', 'walked', 'Pookie', 'in', 'the', 'park'] - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (NN park)))))
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+
+*** START RUN AT: 06/19/2022 08:54:22 ***
+8 Proper Nouns (NNP) read.
+14 Nouns (NN) read.
+20 isA relations read.
+16 canDo relations read.
+----------------------
+Simp : UNK : computer : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : woman : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : UNK : UNK
+cat : feline : see,eat,walk,run
+man : human : see,eat,walk,run
+woman : UNK : UNK
+Human : UNK : UNK
+dog : canine : see,eat,walk,run
+telescope :  : 
+bus :  : 
+duck : bird : see,eat,walk,run,fly
+bird : UNK : UNK
+computer : UNK : compute
+park : recreation-ground : 
+playground : park : UNK
+recreationground : UNK : UNK
+----------------------
+--- reading of data completed ---
+--- end time: 06/19/2022 08:54:22
+--- elapsed time: 0:00:00.310566
+
+=== START LOOP AT: 06/19/2022 08:54:24 ===
+Input: ['Mary', 'walked', 'Pookie', 'in', 'the', 'park'] - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (NN park)))))
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+
+*** START RUN AT: 06/19/2022 08:59:21 ***
+8 Proper Nouns (NNP) read.
+14 Nouns (NN) read.
+20 isA relations read.
+16 canDo relations read.
+----------------------
+Simp : UNK : computer : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : woman : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : UNK : UNK
+cat : feline : see,eat,walk,run
+man : human : see,eat,walk,run
+woman : UNK : UNK
+Human : UNK : UNK
+dog : canine : see,eat,walk,run
+telescope :  : 
+bus :  : 
+duck : bird : see,eat,walk,run,fly
+bird : UNK : UNK
+computer : UNK : compute
+park : recreation ground : 
+playground : park : UNK
+recreationground : UNK : UNK
+----------------------
+--- reading of data completed ---
+--- end time: 06/19/2022 08:59:21
+--- elapsed time: 0:00:00.212460
+
+=== START LOOP AT: 06/19/2022 08:59:26 ===
+Input: ['Mary', 'walked', 'Pookie', 'in', 'the', 'park'] - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (NN park)))))
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+
+*** START RUN AT: 06/19/2022 09:01:34 ***
+8 Proper Nouns (NNP) read.
+14 Nouns (NN) read.
+20 isA relations read.
+16 canDo relations read.
+----------------------
+Simp : UNK : computer : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : woman : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : UNK : UNK
+cat : feline : see,eat,walk,run
+man : human : see,eat,walk,run
+woman : UNK : UNK
+Human : UNK : UNK
+dog : canine : see,eat,walk,run
+telescope :  : 
+bus :  : 
+duck : bird : see,eat,walk,run,fly
+bird : UNK : UNK
+computer : UNK : compute
+park : recreation ground : 
+playground : park : UNK
+recreationground : UNK : UNK
+----------------------
+--- reading of data completed ---
+--- end time: 06/19/2022 09:01:34
+--- elapsed time: 0:00:00.296125
+
+=== START LOOP AT: 06/19/2022 09:01:36 ===
+Input: ['Mary', 'walked', 'Pookie', 'in', 'the', 'park'] - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (NN park)))))
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+
+*** START RUN AT: 06/19/2022 09:03:00 ***
+8 Proper Nouns (NNP) read.
+14 Nouns (NN) read.
+20 isA relations read.
+16 canDo relations read.
+----------------------
+Simp : UNK : computer : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : woman : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : UNK : UNK
+cat : feline : see,eat,walk,run
+man : human : see,eat,walk,run
+woman : UNK : UNK
+Human : UNK : UNK
+dog : canine : see,eat,walk,run
+telescope :  : 
+bus :  : 
+duck : bird : see,eat,walk,run,fly
+bird : UNK : UNK
+computer : UNK : compute
+park : recreation ground : 
+playground : park : UNK
+recreationground : UNK : UNK
+----------------------
+--- reading of data completed ---
+--- end time: 06/19/2022 09:03:00
+--- elapsed time: 0:00:00.300936
+
+=== START LOOP AT: 06/19/2022 09:03:02 ===
+Input: ['Mary', 'walked', 'Pookie', 'in', 'the', 'park'] - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (NN park)))))
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'walked', 'Pookie', 'in', 'the', 'park']
+	NNPs Found (2).
+[NPP(name='Mary', gender='UNK', isA='woman', canDo='see,eat,walk,run'), NPP(name='Pookie', gender='UNK', isA='cat', canDo='see,eat,walk,run')]
+	NNs Found (1).
+[NN(name='park', isA='recreation ground', canDo='')]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; woman ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Split isAs: ['woman']
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary walk
+	NNP Object:
+Pookie ; UNK ; cat ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Pookie
+	Split isAs: ['cat']
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Pookie walk
+	-NN---------------------
+	NN Object:
+park ; recreation ground ; 
+	NN Obj name: park	Split isAs:
+['recreation ground']
+	Split canDos:
+['']
+	-Conclusion---------------------
+	matchedCanDo: Mary walk
+	matchedCanDo: Pookie walk
+
+=== END LOOP AT: 06/19/2022 09:03:29 ===
+=== elapsed loop time: 0:00:26.526870 ===
+
+*** START RUN AT: 06/19/2022 09:04:26 ***
+8 Proper Nouns (NNP) read.
+14 Nouns (NN) read.
+20 isA relations read.
+16 canDo relations read.
+----------------------
+Simp : UNK : computer : compute
+John : UNK : man : see,eat,walk,run
+Mary : UNK : woman : see,eat,walk,run
+Bob : UNK : man : see,eat,walk,run
+Pookie : UNK : cat : see,eat,walk,run
+Pete : UNK : man : see,eat,walk,run
+Janet : UNK : UNK : UNK
+Sam : UNK : man : see,eat,walk,run
+----------------------
+self : UNK : UNK
+cat : feline : see,eat,walk,run
+man : human : see,eat,walk,run
+woman : UNK : UNK
+Human : UNK : UNK
+dog : canine : see,eat,walk,run
+telescope :  : 
+bus :  : 
+duck : bird : see,eat,walk,run,fly
+bird : UNK : UNK
+computer : UNK : compute
+park : recreation ground : 
+playground : park : UNK
+recreationground : UNK : UNK
+----------------------
+--- reading of data completed ---
+--- end time: 06/19/2022 09:04:26
+--- elapsed time: 0:00:00.299310
+
+=== START LOOP AT: 06/19/2022 09:04:28 ===
+Input: ['Mary', 'walked', 'Pookie', 'in', 'the', 'park'] - produced:
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (NN park)))))
+(S
+  (NP (NNP Mary))
+  (VP
+    (VBN walked)
+    (NP (NNP Pookie))
+    (PP (IN in) (NP (DT the) (Nom (NN park))))))
+Simple tokenizer: [('Mary', 'NNP'), ('walked', 'VBD'), ('Pookie', 'NNP'), ('in', 'IN'), ('the', 'DT'), ('park', 'NN')]
+	Top of searchMeaning: Input:['Mary', 'walked', 'Pookie', 'in', 'the', 'park']
+	NNPs Found (2).
+[NPP(name='Mary', gender='UNK', isA='woman', canDo='see,eat,walk,run'), NPP(name='Pookie', gender='UNK', isA='cat', canDo='see,eat,walk,run')]
+	NNs Found (1).
+[NN(name='park', isA='recreation ground', canDo='')]
+	-NNP---------------------
+	NNP Object:
+Mary ; UNK ; woman ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Mary
+	Split isAs: ['woman']
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Mary walk
+	NNP Object:
+Pookie ; UNK ; cat ; see,eat,walk,run
+	canDos: see,eat,walk,run
+	NNP Obj name: Pookie
+	Split isAs: ['cat']
+	Split canDos: ['see', 'eat', 'walk', 'run']
+	Match: Pookie walk
+	-NN---------------------
+	NN Object:
+park ; recreation ground ; 
+	NN Obj name: park	Split isAs:
+['recreation ground']
+	Split canDos:
+['']
+	-Conclusion---------------------
+	matchedCanDo: Mary walk
+	matchedCanDo: Pookie walk
+
+=== END LOOP AT: 06/19/2022 09:04:53 ===
+=== elapsed loop time: 0:00:25.026267 ===
+
+=== END LOOP AT: 06/19/2022 09:04:55 ===
+=== elapsed loop time: 0:00:00.004824 ===
+
+*** END RUN AT: 06/19/2022 09:04:55 ***
+*** elapsed run time: 0:00:29.491186
